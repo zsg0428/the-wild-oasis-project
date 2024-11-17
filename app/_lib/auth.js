@@ -7,7 +7,21 @@ const authConfig = {
             clientId: process.env.AUTH_GOOGLE_ID,
             clientSecret: process.env.AUTH_GOOGLE_SECRET,
         })
-    ]
+    ],
+    callbacks: {
+        authorized({auth, request}) {
+            // 这个等同于 if (auth.user) return true
+            return !!auth?.user
+        }
+    },
+    pages: {
+        signIn: '/login'
+    }
 }
 
-export const {auth, handlers: {GET, POST}} = NextAuth(authConfig)
+export const {
+    auth,
+    signIn,
+    signOut,
+    handlers: {GET, POST}
+} = NextAuth(authConfig)
