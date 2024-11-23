@@ -2,7 +2,7 @@ import Header from "./_components/Header";
 
 
 import "@/app/_styles/globals.css";
-
+import {Analytics} from "@vercel/analytics/react"
 // Font step 1:
 import {Josefin_Sans} from "next/font/google";
 import {ReservationProvider} from "@/app/_components/ReservationContext";
